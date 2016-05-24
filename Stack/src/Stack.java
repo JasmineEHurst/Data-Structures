@@ -1,6 +1,6 @@
 /*
  * 
- * Stack implementation of linkedlist
+ * LinkedList implementation of stack
  * 
  * */
 public class Stack {
