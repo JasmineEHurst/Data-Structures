@@ -29,16 +29,21 @@ public class Stack {
 		size++;
 	}
 	
-	public int pop(){
-//		if(!isEmpty()){
+	public int pop() throws Exception{
+		if(!isEmpty()){
 			Node focusNode = top;
 			top = focusNode.getLink();
 			size--;
 			return focusNode.getData();
-//	}
+		}else{
+			throw new StackEmptyException();
+		}
 	}
 	
-	public int peek(){
+	public int peek() throws Exception{
+		if(isEmpty()){
+			throw new StackEmptyException();
+		}
 		return top.getData();
 	}
 	public void display(){

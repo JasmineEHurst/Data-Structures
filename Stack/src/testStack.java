@@ -1,7 +1,7 @@
 
 public class testStack {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Stack stack = new Stack();
 		
 		stack.push(0);
@@ -18,6 +18,13 @@ public class testStack {
 		System.out.println(stack.peek());
 		System.out.println();
 		System.out.println(stack.getSize());
+		System.out.print(stack.pop());
+		System.out.print(stack.pop());
+		System.out.print(stack.pop());
+		System.out.print(stack.pop());
+		System.out.print(stack.pop());
+		System.out.println();
+		System.out.println(stack.isEmpty());
 		
 	}
 
