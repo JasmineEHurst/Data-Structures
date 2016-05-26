@@ -3,11 +3,11 @@
  * LinkedList implementation of stack
  * 
  * */
-public class Stack {
+public class StackLinkedList {
 	Node top;
 	int size;
 	
-	public Stack(){
+	public StackLinkedList(){
 		top = null;
 		size = 0;
 	}
@@ -19,7 +19,7 @@ public class Stack {
 		return size;
 	}
 	public void push(int data){
-		Node newNode = new Node(data, null);
+		Node newNode = new Node(data);
 		if(top == null){
 			top = newNode;
 		}else{

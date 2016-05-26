@@ -1,30 +1,31 @@
-
-public class Node {
-	int data;
-	Node link;
+/*
+ * Make data 
+ * */
+public class Node<T> {
+	T data;
+	Node<T> link;
 	
 	public Node(){
 		link = null;
-		data = 0;
+		data = null;
 	}
 	
-	public Node(int data, Node node){
+	public Node(T data){
 		this.data = data;
-		this.link = node;
 	}
 	
 	public void setLink(Node node){
 		link = node;
 	}
 	
-	public void setData(int d){
+	public void setData(T d){
 		data = d;
 	}
 	public Node getLink(){
 		return link;
 	}
 	public int getData(){
-		return data;
+		return (int) data;
 	}
 	
 }

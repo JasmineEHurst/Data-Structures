@@ -2,7 +2,7 @@
 public class testStack {
 
 	public static void main(String[] args) throws Exception {
-		Stack stack = new Stack();
+		StackLinkedList stack = new StackLinkedList();
 		
 		stack.push(0);
 		stack.push(1);
