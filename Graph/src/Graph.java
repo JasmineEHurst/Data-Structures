@@ -16,6 +16,7 @@ public class Graph {
 	}
 	
 	public void BFS(int current){
+		/* Avoid visiting the same nodes */
 		boolean visited[] = new boolean[verticies];
 		LinkedList queue = new LinkedList();
 		visited[current] = true;
@@ -37,6 +38,22 @@ public class Graph {
 					visited[n] = true;
 				}
 			}
+		}
+	}
+	
+	public void DFS(int current){
+		boolean visited[] = new boolean[verticies];
+		DFSCurrent(current, visited);
+	}
+	
+	public void DFSCurrent(int current, boolean visited[]){
+		System.out.print(current + " ");
+		visited[current] = true;
+		Iterator<Integer> i = adjacency[current].listIterator();
+		while(i.hasNext()){
+			int node = i.next();
+			if(!visited[node])
+				DFSCurrent(node, visited);
 		}
 	}
 	

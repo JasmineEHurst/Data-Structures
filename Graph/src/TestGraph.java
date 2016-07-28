@@ -13,6 +13,8 @@ public class TestGraph {
         g.addEdge(3, 3);
         
         g.BFS(2);
+        System.out.println();
+        g.DFS(2);
 	}
 
 }
