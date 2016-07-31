@@ -8,6 +8,10 @@ public class TestLinkedList {
 		myList.add(new Integer(1));
 		myList.add(new Integer(2));
 		myList.add(new Integer(3));
+		myList.add(new Integer(5));
+		myList.addInOrder(new Integer(4));
+		myList.addInOrder(new Integer(0));
+		
 
 
 		myList.printList();

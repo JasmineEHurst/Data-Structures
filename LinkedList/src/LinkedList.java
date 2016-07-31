@@ -51,4 +51,35 @@ public class LinkedList {
 	public void incrementSize(){
 		size++;
 	}
+	
+	public void addInOrder(int data){
+		if(isEmpty()){
+			head = new Node(data);
+		}else if(data < head.data){
+			Node temp = head;
+			Node newNode = new Node(data);
+			newNode.next = temp;
+			head = newNode;
+			
+		}else{
+			Node current = head;
+			while(current.next != null){
+				if(data < (int)current.next.data){
+					Node newNode = new Node(data);
+					newNode.next = current.next;
+					current.next = newNode;
+					return;
+				}else{
+					current = current.next;
+				}
+			}
+		}
+			
+	}
+	
+	public boolean isEmpty(){
+		if(size == 0)
+			return true;
+		return false;
+	}
 }

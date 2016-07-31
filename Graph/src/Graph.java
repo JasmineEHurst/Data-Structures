@@ -47,8 +47,10 @@ public class Graph {
 	}
 	
 	public void DFSCurrent(int current, boolean visited[]){
+		/* Print node and mark as visited */
 		System.out.print(current + " ");
 		visited[current] = true;
+		
 		Iterator<Integer> i = adjacency[current].listIterator();
 		while(i.hasNext()){
 			int node = i.next();
