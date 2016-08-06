@@ -15,4 +15,8 @@ public class Node<T> {
 	public void setData(T data){
 		this.data = data;
 	}
+	
+	public String toString(){
+		return " " + data;
+	}
 }

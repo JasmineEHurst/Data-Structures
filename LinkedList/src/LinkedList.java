@@ -1,7 +1,7 @@
 
 public class LinkedList {
-	Node<Integer> head;
-	int size;
+	private Node<Integer> head;
+	private int size;
 	
 	public void add(Object data){
 		if(head == null){
@@ -35,9 +35,7 @@ public class LinkedList {
 		focusNode.next = newNode;
 		incrementSize();
 	}
-	public void deleteNode(){
-		
-	}
+
 	
 	public void printList(){
 		if(head != null){
@@ -81,5 +79,41 @@ public class LinkedList {
 		if(size == 0)
 			return true;
 		return false;
+	}
+	
+	public void deleteNode(Node head, Node node){
+		if(node.data == head.data){
+			//Cannot have empty list
+			if(head.next == null){
+				return;
+			}
+			head.data = head.next.data;
+			node = head.next;
+			head.next = head.next.next;
+			// free memory
+            System.gc();
+			return;
+		}
+		Node<Integer> current = head;
+		while(current.next != null){
+			if(current.next == node){
+				current.next = current.next.next;
+				// free memory
+	            System.gc();
+				return;
+			}
+			current = current.next;
+		}
+		return;
+		
+		
+	}
+	
+	public Node getHead(){
+		return head;
+	}
+	
+	public int getSize(){
+		return size;
 	}
 }
