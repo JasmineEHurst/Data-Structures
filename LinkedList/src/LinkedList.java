@@ -82,14 +82,15 @@ public class LinkedList {
 	}
 	
 	public void deleteNode(Node head, Node node){
-		if(node.data == head.data){
+		if(node == head){
 			//Cannot have empty list
 			if(head.next == null){
 				return;
 			}
 			head.data = head.next.data;
-			node = head.next;
+			
 			head.next = head.next.next;
+//			node = head.next;
 			// free memory
             System.gc();
 			return;
@@ -107,6 +108,27 @@ public class LinkedList {
 		return;
 		
 		
+	}
+	
+	public int compare(Node list1node, Node list2node){
+		if(list1node == null && list2node == null)
+			return 0;
+		 while(list1node != null && list2node != null && list1node.data == list2node.data){
+			 list1node = list1node.next;
+			 list2node = list2node.next;
+		 }
+		 
+		 if(list1node == null && list2node != null){
+			 return -1;
+		 }
+		 if(list2node == null && list1node != null){
+			 return 1;
+		 }
+		 if (list1node != null && list2node != null){
+			 return ((int)list1node.data > (int)list2node.data ? 1 : -1);
+		 }
+		 return 0;
+		 
 	}
 	
 	public Node getHead(){

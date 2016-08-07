@@ -15,6 +15,7 @@ public class TestLinkedList {
 		myList.printList();
 		System.out.println("\nCurrent head is" + myList.getHead());
 		System.out.println("List after deleting head");
+		myList.deleteNode(myList.getHead(), myList.getHead());
 		myList.deleteNode(myList.getHead(), myList.getHead().next);
 
 		myList.printList();
