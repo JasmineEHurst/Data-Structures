@@ -19,6 +19,7 @@ public class TestLinkedList {
 		myList.deleteNode(myList.getHead(), myList.getHead().next);
 
 		myList.printList();
+		System.out.println("\n" + myList.getCount(myList.getHead()));
 	}
 
 }

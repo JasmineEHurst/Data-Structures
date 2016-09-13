@@ -130,6 +130,24 @@ public class LinkedList {
 		 return 0;
 		 
 	}
+	/* Iterative function for obtaining length of list */
+	public int getCount(){
+		Node temp = head;
+		int count = 0;
+		while(temp != null){
+			count++;
+			temp = temp.next;
+		}
+		return count;
+	}
+	/* Recursive function for obtaining length of list */
+	public int getCount(Node head){
+		if(head == null)
+			return 0;
+		else{
+			return 1 + getCount(head.next);
+		}
+	}
 	
 	public Node getHead(){
 		return head;
