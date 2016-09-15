@@ -170,13 +170,18 @@ public class LinkedList {
 	/* Function reverses linkedlist
 	 * Returns new head of linkedllist */
 	public Node reverse(Node head){
+		// The first node is the tail, so its link will be null
 		Node prev = null;
 		Node current = head;
 		Node next = null;
 		while(current != null){
+			// The next node from original list, will switch current to this node later
 			next = current.next;
+			// Connect current node to the one previous (backwards), if its the tail prev is null
 			current.next = prev;
+			// Now that the connection is made, switch current node to previous for next loop
 			prev = current;
+			// Switch to next node from original list
 			current = next;
 		}
 		head = prev;
