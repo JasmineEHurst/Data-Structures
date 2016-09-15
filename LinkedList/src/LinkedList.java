@@ -35,20 +35,6 @@ public class LinkedList {
 		focusNode.next = newNode;
 		incrementSize();
 	}
-
-	
-	public void printList(){
-		if(head != null){
-			Node<Integer> focusNode = head;
-			while(focusNode != null){
-				System.out.printf("%d ",focusNode.getData());
-				focusNode = focusNode.next;
-			}
-		}
-	}
-	public void incrementSize(){
-		size++;
-	}
 	
 	public void addInOrder(int data){
 		if(isEmpty()){
@@ -75,11 +61,29 @@ public class LinkedList {
 			
 	}
 	
-	public boolean isEmpty(){
-		if(size == 0)
-			return true;
-		return false;
+	
+	public int compare(Node list1node, Node list2node){
+		if(list1node == null && list2node == null)
+			return 0;
+		 while(list1node != null && list2node != null && list1node.data == list2node.data){
+			 list1node = list1node.next;
+			 list2node = list2node.next;
+		 }
+		 
+		 if(list1node == null && list2node != null){
+			 return -1;
+		 }
+		 if(list2node == null && list1node != null){
+			 return 1;
+		 }
+		 if (list1node != null && list2node != null){
+			 return ((int)list1node.data > (int)list2node.data ? 1 : -1);
+		 }
+		 return 0;
+		 
 	}
+	
+	
 	
 	public void deleteNode(Node head, Node node){
 		if(node == head){
@@ -110,26 +114,30 @@ public class LinkedList {
 		
 	}
 	
-	public int compare(Node list1node, Node list2node){
-		if(list1node == null && list2node == null)
-			return 0;
-		 while(list1node != null && list2node != null && list1node.data == list2node.data){
-			 list1node = list1node.next;
-			 list2node = list2node.next;
-		 }
-		 
-		 if(list1node == null && list2node != null){
-			 return -1;
-		 }
-		 if(list2node == null && list1node != null){
-			 return 1;
-		 }
-		 if (list1node != null && list2node != null){
-			 return ((int)list1node.data > (int)list2node.data ? 1 : -1);
-		 }
-		 return 0;
-		 
+	
+	
+	public void incrementSize(){
+		size++;
 	}
+	
+	
+	public boolean isEmpty(){
+		if(size == 0)
+			return true;
+		return false;
+	}
+	
+	public void printList(){
+		if(head != null){
+			Node<Integer> focusNode = head;
+			while(focusNode != null){
+				System.out.printf("%d ",focusNode.getData());
+				focusNode = focusNode.next;
+			}
+		}
+	}
+	
+
 	/* Iterative function for obtaining length of list */
 	public int getCount(){
 		Node temp = head;
@@ -140,6 +148,8 @@ public class LinkedList {
 		}
 		return count;
 	}
+	
+	
 	/* Recursive function for obtaining length of list */
 	public int getCount(Node head){
 		if(head == null)
@@ -155,5 +165,25 @@ public class LinkedList {
 	
 	public int getSize(){
 		return size;
+	}
+	
+	/* Function reverses linkedlist
+	 * Returns new head of linkedllist */
+	public Node reverse(Node head){
+		Node prev = null;
+		Node current = head;
+		Node next = null;
+		while(current != null){
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		head = prev;
+		return head;
+	}
+	
+	public void setHead(Node node){
+		head = node;
 	}
 }
